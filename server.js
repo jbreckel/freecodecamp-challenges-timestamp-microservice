@@ -57,6 +57,9 @@ app.use((req, res, next) => {
     }
     dateObj.unix = date.unix()
     dateObj.natural = date.format(format)
+    if ( !date.isValid() ) {
+      dateObj.natural = null
+    }
   } finally {
     res.send(dateObj)
   }
